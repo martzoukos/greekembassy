@@ -14,7 +14,7 @@
 # Per-page layout changes:
 #
 # With no layout
-# page "/path/to/file.html", :layout => false
+page "/email.html", :layout => "/layouts/email.haml"
 #
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout
@@ -39,11 +39,27 @@
 # activate :livereload
 
 # Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+
+# Email template variables
+@font__stack = '"Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif'
+@color__blue = "#36a1cd"
+@color__blue__dark = "#2a2f76"
+@font__heading_1 = "font-size: 76px; line-height: 78px; color: #{@color__blue};"
+@font__heading_2 = "font-size: 43px; line-height: 45px; color: #{@color__blue};"
+@font__heading_3 = "font-size: 21px; font-weight: bold; line-height: 30px; color: #{@color__blue};"
+@font__heading_4 = "font-size: 16px; font-weight: bold; color: #{@color__blue};"
+@font__copy = "font-family: #{@font__stack}; font-size: 24px; line-height: 30px;"
+@font__note = "font-family: #{@font__stack}; font-size: 12px; line-height: 18px;"
+
+helpers do
+  def vertical_padding(height, colspan = 1)
+    return "<tr><td align='center' colspan='#{colspan}' height='#{height}'></td></tr>".html_safe
+  end
+  
+  def email_image(src, alt, width = "auto", height = "auto")
+    return image_tag(src, alt: alt, style: "border: 0; font-family: #{@font__stack}; font-size: 14px; line-height: #{height}px; height: #{height}px; text-align: center; color: black; width: #{width}px;", width: width, height: height )
+  end
+end
 
 set :css_dir, 'stylesheets'
 
