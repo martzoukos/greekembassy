@@ -44,6 +44,8 @@ page "/email.html", :layout => "/layouts/email.haml"
 @font__stack = '"Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif'
 @color__blue = "#36a1cd"
 @color__blue__dark = "#2a2f76"
+@color__red = "#c22630"
+@color__brown = "#9e835b"
 @font__heading_1 = "font-size: 76px; line-height: 78px; color: #{@color__blue};"
 @font__heading_2 = "font-size: 43px; line-height: 45px; color: #{@color__blue};"
 @font__heading_3 = "font-size: 21px; font-weight: bold; line-height: 30px; color: #{@color__blue};"
@@ -57,7 +59,7 @@ helpers do
   end
   
   def email_image(src, alt, width = "auto", height = "auto")
-    return image_tag(src, alt: alt, style: "border: 0; font-family: #{@font__stack}; font-size: 14px; line-height: #{height}px; height: #{height}px; text-align: center; color: black; width: #{width}px;", width: width, height: height )
+    return image_tag(src, alt: alt, style: "border: 0; display: block; font-family: #{@font__stack}; font-size: 14px; line-height: #{height}px; height: #{height}px; text-align: center; color: black; width: #{width}px;", width: width, height: height )
   end
 end
 
