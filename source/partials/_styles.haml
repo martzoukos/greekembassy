@@ -1,0 +1,84 @@
+:css
+  /* Force Outlook to provide a "view in browser" menu link. */
+  #outlook a { padding:0; }
+  /* Some resets, such as fixing text size in mobile ios and outlook */
+  body {
+    width: 100% !important;
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  /* Fix 1px border/padding in tables in outlook http://www.campaignmonitor.com/blog/post/3392/1px-borders-padding-on-table-cells-in-outlook-07 */
+  table td { border-collapse: collapse; }
+  /* Reset paragraph top/bottom margin, in case you use <p> tags */
+  p {margin: 1em 0;}
+  /* Link style reset, but still you will need to apply inline styles. We're using #000001 instead of full black, as #000000 gets stripped and replaced by Gmail with blue links. */
+  a, a:visited, a:active { color: #000001; }
+
+  /* For Yahoo Mail to play nicely, you use attribute selectors in place of class, id declarations. Like table[class=classname]. http://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email */
+  @media screen and (max-width:480px) {
+    *[class~=mob-padding], *[class=mob-padding] {
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+
+    /*Height classes*/
+    *[class~=mob-height-10], *[class=mob-height-10] { height: 10px !important; }
+    *[class~=mob-height-15], *[class=mob-height-15] { height: 15px !important; }
+    *[class~=mob-height-20], *[class=mob-height-20] { height: 20px !important; }
+    *[class~=mob-height-25], *[class=mob-height-25] { height: 25px !important; }
+    *[class~=mob-height-30], *[class=mob-height-30] { height: 30px !important; }
+    *[class~=mob-height-40], *[class=mob-height-40] { height: 40px !important; }
+    *[class~=mob-height-50], *[class=mob-height-50] { height: 50px !important; }
+    *[class~=mob-height-60], *[class=mob-height-60] { height: 60px !important; }
+    *[class~=mob-height-70], *[class=mob-height-70] { height: 70px !important; }
+    *[class~=mob-height-80], *[class=mob-height-80] { height: 80px !important; }
+    *[class~=mob-height-90], *[class=mob-height-90] { height: 90px !important; }
+    *[class~=mob-height-100], *[class=mob-height-100] { height: 100px !important; }
+    
+    /*Width classes*/
+    *[class~=mob-width-0], *[class=mob-width-0] { width: 0 !important; }
+    *[class~=mob-auto-width], *[class=mob-auto-width] { width: auto !important;}
+    *[class~=mob-full-width], *[class=mob-full-width] {
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    /*Typography classes*/
+    *[class~=mob-heading-1], *[class=mob-heading-1] {
+      font-size: 60px !important;
+      line-height: 54px !important;
+    }
+    *[class~=mob-heading-2], *[class=mob-heading-2] {
+      font-size: 40px !important;
+      line-height: 40px !important;
+    }
+    *[class~=mob-copy], *[class=mob-copy] {
+      font-size: 18px !important;
+      line-height: 24px !important;
+    }
+  }
+/*
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ 1019 characters fix for iOS 20KB cutoff message
+/ http://www.emailonacid.com/blog/details/C13/ensure_that_your_entire_email_is_rendered_by_default_in_the_iphone_ipad
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ ##################################################
+/ ##################################################*/

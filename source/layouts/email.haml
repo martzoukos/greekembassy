@@ -6,60 +6,7 @@
     %title= yield_content(:title)
     %meta{ :"http-equiv" => "Content-Type", content: "text/html; charset=utf-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
-
-    :css
-      /* Force Outlook to provide a "view in browser" menu link. */
-      #outlook a { padding:0; }
-      /* Some resets, such as fixing text size in mobile ios and outlook */
-      body {
-        width: 100% !important;
-        -webkit-text-size-adjust: none;
-        -ms-text-size-adjust: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      /* Fix 1px border/padding in tables in outlook http://www.campaignmonitor.com/blog/post/3392/1px-borders-padding-on-table-cells-in-outlook-07 */
-      table td { border-collapse: collapse; }
-      /* Reset paragraph top/bottom margin, in case you use <p> tags */
-      p {margin: 1em 0;}
-      /* Link style reset, but still you will need to apply inline styles. We're using #000001 instead of full black, as #000000 gets stripped and replaced by Gmail with blue links. */
-      a, a:visited, a:active { color: #000001; }
-
-      /* For Yahoo Mail to play nicely, you use attribute selectors in place of class, id declarations. Like table[class=classname]. http://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email */
-      @media screen and (max-width:480px) {
-        *[class~=mob-padding], *[class=mob-padding] {
-          padding-left: 10px !important;
-          padding-right: 10px !important;
-        }
-        *[class~=mob-full-width], *[class=mob-full-width] {
-          width: 100% !important;
-          height: auto !important;
-        }
-      }
-
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / 1019 characters fix for iOS 20KB cutoff message
-    / http://www.emailonacid.com/blog/details/C13/ensure_that_your_entire_email_is_rendered_by_default_in_the_iphone_ipad
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / ##################################################
-    / ##################################################
-
+    = partial "/partials/styles"
   %body
 
     - #Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag as the body tag gets stripped in Gmail.
@@ -75,20 +22,20 @@
         %td{ align: "center", style: "padding-left: 10px; padding-right: 10px;" }
           - #Content Container
           %table.mob-full-width{ cellpadding: 0, cellspacing: 0, width: 880 }
-            = vertical_padding(60)
+            = vertical_padding(60, "mob-height-30")
             - #Logo Row
             %tr
-              %td{ align: "left" }
-                %table{ cellpadding: 0, cellspacing: 0 }
+              %td{ align: "center" }
+                %table.mob-auto-width{ cellpadding: 0, cellspacing: 0, width: "100%" }
                   %tr
-                    %td{ align: "center", width: 175 }
+                    %td.mob-auto-width{ align: "center", width: 175 }
                     %td{ align: "left" }
                       = link_to "http://www.mfa.gr/usa/en//" do
                         = email_image("/images/emails/logo.gif", "Embassy Of Greece", 215, 67)
-            = vertical_padding(40)
+            = vertical_padding(40, "mob-height-20")
             - #Title Row
             %tr
-              %td{ align: "right", style: "#{@font__heading_1}" }
+              %td.mob-heading-1{ align: "right", style: "#{@font__heading_1}" }
                 Greece In America
             = vertical_padding(10)
             - #Newsletter Issue Row
@@ -100,13 +47,13 @@
                       NEWSLETTER
                     %td{ align: "right", rowspan: 4, width: 5 }
                     %td{ align: "right", rowspan: 4, style: "background: #{@color__blue__dark};", width: 3 }
-                  = vertical_padding(15)
+                  = vertical_padding(15, "mob-height-10")
                   %tr
                     %td{ align: "right", style: "#{@font__heading_4} line-height:1em;", valign: "top" }
                       - #Use one line string for spacing issues
                       = "March/April 2014<br/>Issue 5"
-                  = vertical_padding(30)
-            = vertical_padding(50)
+                  = vertical_padding(30, "mob-height-20")
+            = vertical_padding(50, "mob-height-20")
 
             - #2 COLUMNS START HERE
             %tr

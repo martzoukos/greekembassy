@@ -29,12 +29,12 @@
   = vertical_padding(20)
   %tr
     %td{ align: "left" }
-      = link_to article_url, style: "#{@font__heading_2} text-decoration: none;" do
+      = link_to article_url, class: "mob-heading-2", style: "#{@font__heading_2} text-decoration: none;" do
         = article_title
   = vertical_padding(20)
   %tr
-    %td{ align: "left", style: @font__copy }
+    %td.mob-copy{ align: "left", style: @font__copy }
       = article_text
-      = link_to article_url, style: "#{@font__copy} color: #{@color__blue}; text-decoration: none;" do
+      = link_to article_url, class: "mob-copy", style: "#{@font__copy} color: #{@color__blue}; text-decoration: none;" do
         Read more...
-  = vertical_padding(130)
+  = vertical_padding(130, "mob-height-60")

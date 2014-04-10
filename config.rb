@@ -54,8 +54,8 @@ page "/email.html", :layout => "/layouts/email.haml"
 @font__note = "font-family: #{@font__stack}; font-size: 12px; line-height: 18px;"
 
 helpers do
-  def vertical_padding(height, colspan = 1)
-    return "<tr><td align='center' colspan='#{colspan}' height='#{height}'></td></tr>".html_safe
+  def vertical_padding(height, responsive_class = "", colspan = 1)
+    return "<tr><td align='center' class='#{responsive_class}' colspan='#{colspan}' height='#{height}'></td></tr>".html_safe
   end
   
   def email_image(src, alt, width = "auto", height = "auto")
