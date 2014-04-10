@@ -67,3 +67,12 @@
 
                 - #SIDEBAR
                 = partial "/partials/sidebar"
+
+            %tr
+              %td{ align: "center", style: "#{@font__note}" }
+                Copyright © 2014 Embassy of Greece All rights reserved.
+                %br
+                = link_to "Unsubscribe from this list", "#", style: "color: #{@color__blue}; text-decoration: none;"
+                |
+                = link_to "Update subscription preferences", "#", style: "color: #{@color__blue}; text-decoration: none;"
+            = vertical_padding(20)
