@@ -15,6 +15,8 @@
 #
 # With no layout
 page "/email.html", :layout => "/layouts/email.haml"
+
+page "/mailchimp.html", :layout => false
 #
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout
